@@ -1,0 +1,13 @@
+header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 15px 0;
+
+    .logo {
+        svg {
+            height: 40px;
+        }
+    }
+}

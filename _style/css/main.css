@@ -39,11 +39,102 @@
 }
 html, body {
   font-family: "DM Sans";
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #0a0a0a;
 }
 
 html, body {
   margin: 0;
   padding: 0;
+}
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 15px 0;
+}
+header .logo svg {
+  height: 40px;
+}
+
+.navigation {
+  position: relative;
+  margin: 0;
+  text-align: right;
+  list-style: none;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+.navigation li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.navigation li:last-of-type {
+  margin-right: 0;
+}
+.navigation li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.navigation li .dropdown-link {
+  position: relative;
+  padding-right: 10px;
+}
+.navigation li .dropdown-link::after {
+  content: ">";
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.navigation li .dropdown {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+
+.welcome-wrapper {
+  position: relative;
+  padding: 100px 0;
+}
+.welcome-wrapper img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.welcome-wrapper .search-bar {
+  position: relative;
+}
+.welcome-wrapper .search-bar input[type=text] {
+  border-radius: 10px;
+  width: 100%;
+  height: 35px;
+  padding: 5px 35px;
+  border: 1px solid #f2f2f2;
+  background-color: #ffffff;
+}
+.welcome-wrapper .search-bar .my-location, .welcome-wrapper .search-bar button {
+  position: absolute;
+  top: 5px;
+}
+.welcome-wrapper .search-bar .my-location .svg-icon, .welcome-wrapper .search-bar button .svg-icon {
+  font-size: 30px;
+}
+.welcome-wrapper .search-bar .my-location {
+  left: 0;
+}
+.welcome-wrapper .search-bar button {
+  right: 0;
+  border: none;
+  background: none;
 }/*# sourceMappingURL=main.css.map */
