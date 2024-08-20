@@ -3,3 +3,35 @@ html, body {
     font-size: $body-font-size;
     color: $font-color;
 }
+
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        text-decoration: underline;
+    }
+}
+
+.svg-icon {
+    vertical-align: middle;
+    font-size: 1.5rem;
+}
+
+.section-header {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 200px;
+        height: 1px;
+        background-color: $grey;
+        transform: translateX(-50%);
+    }
+}

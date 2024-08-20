@@ -5,9 +5,30 @@ header {
     z-index: 10;
     padding: 15px 0;
 
+    .center-column {
+        text-align: center;
+    }
+
+    .mobile-menu {
+        color: $white;
+
+        .svg-icon {
+            cursor: pointer;
+        }
+    }
+
     .logo {
         svg {
+            fill: $white;
             height: 40px;
+        }
+    }
+}
+
+@include md-breakpoint {
+    header {
+        .center-column {
+            text-align: left;
         }
     }
 }

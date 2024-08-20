@@ -1,0 +1,98 @@
+.property-box {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 2px;
+    color: $font-color;
+    @include rounded();
+    @include boxShadow();
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+
+    .property-offer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        padding: 5px;
+        text-align: center;
+        background-color: $secondary;
+        color: $white;
+        transform: translateX(55px) translateY(25px) rotate(45deg)
+    }
+
+    img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .add-to-favorites {
+        position: absolute;
+        right: 15px;
+        margin-top: 15px;
+        color: $primary;
+        cursor: pointer;
+
+        &:not(.added):hover {
+            .svg-icon {
+                font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24
+            }
+        }
+
+        &.added {
+            .svg-icon {
+                font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24
+            }
+        }
+
+        .svg-icon {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24
+        }
+    }
+
+    .property-info {
+        padding: 15px;
+        background-color: $white;
+
+        .property-title {
+            width: 100%;
+            padding-right: 30px;
+            font-weight: bold;
+            color: $font-color;
+        }
+
+        .property-price {
+            font-size: 1.6rem;
+            color: $primary;
+        }
+
+        .property-details {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid $border-light;
+
+            .detail {
+                font-size: 0.8rem;
+
+                .label {
+                    display: block;
+                }
+
+                .value {
+                    font-size: 1.0rem;
+                    font-weight: bold;
+
+                    .svg-icon {
+                        vertical-align: text-bottom;
+                    }
+                }
+            }
+        }
+    }
+}

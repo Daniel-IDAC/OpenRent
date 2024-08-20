@@ -13,37 +13,106 @@ function getUserState() {
     let expresion = new RegExp("userState=([^;]+)");
     let value = expresion.exec(document.cookie);
     return (value != null) ? value[1] : null;
+    //return "login";
+    //return "logout";
 }
 
 $(function() {
-        switch (getUserState()) {
-            case "login":
-                $(".visible-logged").show();
-                $(".hidden-logged").hide();
-            break;
-            case "logout":
-                $(".visible-logged").hide();
-                $(".hidden-logged").show();
+    const swiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        breakpoints: {
+            576: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1200: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+        },
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    switch (getUserState()) {
+        case "login":
+            $(".visible-logged").show();
+            $(".hidden-logged").hide();
+        break;
+        case "logout":
+            $(".visible-logged").hide();
+            $(".hidden-logged").show();
+        break;
+        default:
+            $(".visible-logged").hide();
+            $(".hidden-logged").show();
+    }
+
+    $("#overlay-background").on("click", function() {
+        switch ($(this).attr("data-trigger-type")) {
+            case "flyout":
+                closeFlyout($(this).attr("data-trigger-id"));
             break;
             default:
-                $(".visible-logged").hide();
-                $(".hidden-logged").show();
+                toggleOverlayBackground();
         }
+    });
+    
+    $(".user-settings-wrapper").on("click", function() {
+        $(this).children(".user-settings").show();
+        $("#user-settings-overlay-background").show();
+    });
+    
+    $("#user-settings-overlay-background").on("click", function() {
+        $(".user-settings-wrapper .user-settings").hide();
+        $("#user-settings-overlay-background").hide();
+    });
 
-        $(".navigation .dropdown-link").on("mouseenter", function() {
-            $(this).next(".dropdown").slideUp();
-            $(this).addClass("active");
-            $(this).next(".dropdown").addClass("active");
-        })
+    $(".dropdown-link").on("mouseenter", function() {
+        $(this).children(".dropdown").slideDown()
+    });
 
-        $(".navigation a").not(".active").on("mouseenter", function() {
-            $(".navigation").find(".dropdown.active").slideDown();
-            $(".navigation").find(".active").removeClass("active");
-        })
+    $(".dropdown").on("mouseleave", function() {
+        $(this).slideUp()
+    });
+});
 
-        $(".navigation").on("mouseleave", function() {
-            $(this).find(".dropdown.active").slideDown();
-            $(this).find(".active").removeClass("active");
-        })
+function openFlyout(id) {
+    if ($("#" + id).hasClass("right")) {
+        $("#" + id).css("right", 0);
     }
-);
+    else {
+        $("#" + id).css("left", 0);
+    }
+    
+    $("#overlay-background").attr("data-trigger-id", id);
+    $("#overlay-background").attr("data-trigger-type", "flyout");
+    toggleOverlayBackground();
+}
+
+function closeFlyout(id) {
+    if ($("#" + id).hasClass("right")) {
+        $("#" + id).css("right", -500);
+    }
+    else {
+        $("#" + id).css("left", -500);
+    }
+    toggleOverlayBackground();
+}
+
+function toggleOverlayBackground() {
+    $("#overlay-background").toggle();
+    $(".user-settings-wrapper .user-settings").hide();
+    $("#user-settings-overlay-background").hide();
+}

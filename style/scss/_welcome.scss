@@ -1,6 +1,8 @@
 .welcome-wrapper {
     position: relative;
-    padding: 100px 0;
+    height: 90vh;
+    padding: 30vh 0;
+    color: $white;
     
     img {
         position: absolute;
@@ -13,6 +15,7 @@
 
     .search-bar {
         position: relative;
+        color: $font-color;
 
         input[type=text] {
             @include rounded();

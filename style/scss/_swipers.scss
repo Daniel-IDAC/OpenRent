@@ -1,0 +1,25 @@
+.custom-swiper {
+    position: relative;
+    padding: 0 15px;
+    margin-bottom: 30px;
+
+    .swiper-button-next, .swiper-button-prev {
+        color: $grey;
+
+        &::after {
+            content: "";
+        }
+
+        &:hover {
+            color: $black;
+        }
+    }
+
+    .swiper-button-prev {
+        left: -15px;
+    }
+
+    .swiper-button-next {
+        right: -15px;
+    }
+}

@@ -1,14 +1,16 @@
 /* -- Colors -- */
-$primary: purple;
-$secondary: blue;
-$tertiary: green;
+$primary: #468cc8;
+$primary-dark: #3272a9;
+$secondary: #5cb85c;
+$secondary-dark: #55a755;
 
 $black: #0a0a0a;
-$grey: #838383;
+$grey: #d9d9d9;
 $off-white: #f2f2f2;
 $white: #ffffff;
 
 $font-color: $black;
+$link-color: $primary;
 
 $success: green;
 $info: blue;
@@ -21,7 +23,8 @@ $border-light: $off-white;
 $body-font: 'DM Sans';
 $header-font: 'DM Sans';
 
-$body-font-size: 1.2rem;
+$body-font-size: 1.0rem;
 
 /* -- Other -- */
 $default-border-radius: 10px;
+$default-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.08), 0 1px 3px 1px rgba(66, 66, 66, 0.16);

@@ -1,0 +1,229 @@
+.flyout {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    height: 100vh;
+    width: 500px;
+    background-color: $white;
+    overflow-x: hidden;
+    transition: all 0.5s ease;
+
+    &.left {
+        left: -500px;
+    }
+
+    &.right {
+        right: -500px;
+    }
+
+    .flyout-header {
+        position: relative;
+        height: 60px;
+        padding: 15px 60px 15px 30px;
+        background-color: $primary;
+        color: $white;
+
+        .flyout-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .flyout-close {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 27px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            padding-top: 1px;
+            @include rounded(50px);
+            border: 1px solid transparent;
+            text-align: center;
+            transition: all 0.5s ease;
+
+            &:hover {
+                border-color: $white;
+            }
+
+            .svg-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 1.6rem;
+                font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            }
+        }
+    }
+
+    .flyout-content {
+        position: relative;
+        padding: 15px 30px;
+
+        #user-settings-overlay-background {
+            display: none;
+            position: absolute;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 60px);
+            background-color: rgba($color: $black, $alpha: 0.07);
+        }
+    }
+}
+
+/* My Account Flyout */
+#mobile-menu {
+    .logo {
+        svg {
+            height: 30px;
+            fill: $white;
+        }
+    }
+
+    .navigation {
+        color: $font-color;
+        margin: 0 -30px;
+        font-size: 1.0rem;
+        text-align: left;
+
+        li {
+            display: block;
+            margin: 0;
+
+            a {
+                display: block;
+                padding: 10px 30px;
+                border-bottom: 1px solid $border-light;
+                color: $font-color;
+            }
+        }
+    }
+}
+
+/* My Account Flyout */
+#my-account {
+    .user-info {
+        position: relative;
+        padding: 0 0 15px 0;
+        border-bottom: 1px solid $border-light;
+
+        .user-settings-wrapper {
+            position: absolute;
+            top: 10px;
+            right: 0;
+
+            .svg-icon {
+                cursor: pointer;
+            }
+
+            .user-settings {
+                display: none;
+                position: absolute;
+                z-index: 10001;
+                right: 0;
+                margin-top: 5px;
+                min-width: 330px;
+                overflow: hidden;
+                background-color: $white;
+                @include rounded();
+                @include boxShadow();
+
+                .user-links {
+                    margin: 0;
+
+                    .delete-account {
+                        a {
+                            background-color: #c84646;
+                            color: $white;
+        
+                            &:hover, &:focus {
+                                background-color: #a93232;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .user-image {
+            a {
+                display: block;
+                width: 100px;
+                height: 100px;
+                overflow: hidden;
+                @include rounded(50px);
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .user-details {
+            padding-top: 10px;
+
+            p {
+                margin: 0;
+            }
+
+            .user-name {
+                font-size: 1.1rem;
+                font-weight: bold;
+            }
+
+            .sing-out-link {
+                text-align: right;
+                margin-top: 10px;
+                font-size: 0.9rem;
+
+                &:hover, &:focus {
+                    a {
+                        text-decoration: none;
+                    }
+                }
+
+                .svg-icon {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    .user-links {
+        margin: 15px -30px 0 -30px;
+        padding: 0;
+        list-style: none;
+        
+        li {
+            &.add-listing {
+                a {
+                    background-color: $secondary;
+                    color: $white;
+
+                    &:hover, &:focus {
+                        background-color: $secondary-dark;
+                    }
+                }
+            }
+
+            a {
+                display: block;
+                padding: 10px 30px;
+                color: $font-color;
+
+                &:hover, &:focus {
+                    background-color: $border-light;
+                    text-decoration: none;
+                }
+
+                .svg-icon {
+                    vertical-align: bottom;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+footer {
+    background-color: $primary;
+    color: $white;
+    padding-top: 15px;
+
+    .logo {
+        svg {
+            height: 50px;
+            fill: $white;
+        }
+        
+        margin-bottom: 15px;
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+        color: $white;
+
+        li {
+            a {
+                color: $white;
+            }
+        }
+    }
+
+    .footer-bottom {
+        padding: 15px 0;
+        background-color: $white;
+        color: $font-color;
+        
+        p {
+            margin: 0;
+        }
+    }
+}
