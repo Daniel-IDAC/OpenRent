@@ -67,6 +67,11 @@
         .property-price {
             font-size: 1.6rem;
             color: $primary;
+
+            .price-label {
+                font-size: 0.9rem;
+                color: $dark-grey;
+            }
         }
 
         .property-details {

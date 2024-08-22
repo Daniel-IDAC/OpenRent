@@ -13,12 +13,22 @@ function getUserState() {
     let expresion = new RegExp("userState=([^;]+)");
     let value = expresion.exec(document.cookie);
     return (value != null) ? value[1] : null;
-    //return "login";
-    //return "logout";
+}
+
+function backTop() {
+    $(document).scrollTop(0);
 }
 
 $(function() {
-    const swiper = new Swiper('.swiper', {
+    window.onscroll = function() {
+        if ($(document).scrollTop() > 20) {
+            $("#back-to-top").css("display", "block");
+        } else {
+            $("#back-to-top").css("display", "none");
+        }
+    };
+
+    const swiperRecently = new Swiper('.swiper.recently', {
         direction: 'horizontal',
         breakpoints: {
             576: {
@@ -40,9 +50,60 @@ $(function() {
         },
         loop: true,
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.recently.swiper-button-next',
+            prevEl: '.recently.swiper-button-prev',
         },
+    });
+
+    const swiperFavourites = new Swiper('.swiper.favourites', {
+        direction: 'horizontal',
+        breakpoints: {
+            576: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            1200: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+        },
+        loop: true,
+        navigation: {
+            nextEl: '.favourites.swiper-button-next',
+            prevEl: '.favourites.swiper-button-prev',
+        },
+    });
+
+    const swiperPress = new Swiper('.swiper.press', {
+        direction: 'horizontal',
+        breakpoints: {
+            576: {
+              slidesPerView: 2,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            992: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+            1200: {
+              slidesPerView: 6,
+              spaceBetween: 30,
+            },
+        },
+        loop: true,
+        autoplay: true,
     });
 
     switch (getUserState()) {
@@ -86,6 +147,11 @@ $(function() {
     $(".dropdown").on("mouseleave", function() {
         $(this).slideUp()
     });
+
+    $(".has-childs").on("click", "a", function(event) {
+        event.preventDefault();
+        $(this).next("ul").slideToggle();
+    });
 });
 
 function openFlyout(id) {
@@ -103,10 +169,10 @@ function openFlyout(id) {
 
 function closeFlyout(id) {
     if ($("#" + id).hasClass("right")) {
-        $("#" + id).css("right", -500);
+        $("#" + id).css("right", -$("#" + id).width());
     }
     else {
-        $("#" + id).css("left", -500);
+        $("#" + id).css("left", -$("#" + id).width());
     }
     toggleOverlayBackground();
 }

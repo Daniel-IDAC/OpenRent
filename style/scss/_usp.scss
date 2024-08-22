@@ -1,13 +1,33 @@
 .usp {
-    margin-top: -100px;
-    padding: 30px 0 50px 0;
-    @include rounded(50px);
+    position: relative;
+    margin-top: -110px;
+    padding: 30px 10px;
+    @include rounded(50px 50px 0 0);
     background-color: $white;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
 
     .svg-icon {
         color: $primary;
         font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .scroll-message {
+        font-size: 0.9rem;
+
+        .svg-icon {
+            color: $font-color;
+        }
+    }
+}
+
+@include md-breakpoint {
+    .usp {
+        margin-top: -100px;
+        font-size: 1.8rem;
     }
 }

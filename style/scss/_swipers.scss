@@ -1,6 +1,6 @@
 .custom-swiper {
     position: relative;
-    padding: 0 15px;
+    padding: 0 30px;
     margin-bottom: 30px;
 
     .swiper-button-next, .swiper-button-prev {
@@ -16,10 +16,24 @@
     }
 
     .swiper-button-prev {
-        left: -15px;
+        left: 0;
     }
 
     .swiper-button-next {
-        right: -15px;
+        right: 0;
+    }
+}
+
+@include md-breakpoint {
+    .custom-swiper {
+        padding: 0 15px;
+        
+        .swiper-button-prev {
+            left: -15px;
+        }
+    
+        .swiper-button-next {
+            right: -15px;
+        }
     }
 }

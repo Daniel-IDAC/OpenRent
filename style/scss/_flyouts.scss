@@ -3,17 +3,17 @@
     z-index: 9999;
     top: 0;
     height: 100vh;
-    width: 500px;
+    width: 97vw;
     background-color: $white;
     overflow-x: hidden;
     transition: all 0.5s ease;
 
     &.left {
-        left: -500px;
+        left: -100vw;
     }
 
     &.right {
-        right: -500px;
+        right: -100vw;
     }
 
     .flyout-header {
@@ -57,6 +57,8 @@
 
     .flyout-content {
         position: relative;
+        height: calc(100vh - 60px);
+        overflow: overlay;
         padding: 15px 30px;
 
         #user-settings-overlay-background {
@@ -91,6 +93,37 @@
             display: block;
             margin: 0;
 
+            &.has-childs {
+                > a {
+                    position: relative;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 15px;
+                        right: 20px;
+                        width: 10px;
+                        height: 10px;
+                        border-right: 2px solid $font-color;
+                        border-bottom: 2px solid $font-color;
+                        transform: rotate(45deg);
+                        transition: all 0.5s ease;
+                    }
+                }
+
+                ul {
+                    display: none;
+                    padding: 0;
+                    background-color: $primary-off;
+
+                    li {
+                        a {
+                            border-color: $white;
+                        }
+                    }
+                }
+            }
+
             a {
                 display: block;
                 padding: 10px 30px;
@@ -123,7 +156,7 @@
                 z-index: 10001;
                 right: 0;
                 margin-top: 5px;
-                min-width: 330px;
+                min-width: calc(100vw - 60px);
                 overflow: hidden;
                 background-color: $white;
                 @include rounded();
@@ -147,10 +180,12 @@
         }
 
         .user-image {
+            padding-top: 10px;
+
             a {
                 display: block;
-                width: 100px;
-                height: 100px;
+                width: 60px;
+                height: 60px;
                 overflow: hidden;
                 @include rounded(50px);
 
@@ -164,6 +199,7 @@
 
         .user-details {
             padding-top: 10px;
+            padding-right: 30px;
 
             p {
                 margin: 0;
@@ -223,6 +259,41 @@
                     vertical-align: bottom;
                     margin-right: 10px;
                 }
+            }
+        }
+    }
+}
+
+@include sm-breakpoint {
+    .flyout {
+        width: 500px;
+        
+        &.left {
+            left: -500px;
+        }
+    
+        &.right {
+            right: -500px;
+        }
+    }
+
+    /* My Account Flyout */
+    #my-account {
+        .user-info {
+            .user-settings-wrapper {
+                .user-settings {
+                    min-width: 330px;
+                }
+            }
+            .user-image {
+                a {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+            
+            .user-details {
+                padding-top: 10px;
             }
         }
     }

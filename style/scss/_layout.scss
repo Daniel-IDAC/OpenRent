@@ -14,32 +14,104 @@ html, body {
     background-color: rgba($color: $black, $alpha: 0.8);
 }
 
-@include xs-breakpoint {
-    html, body {
-        border-top: 10px solid red;
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+    padding: 5px;
+    background-color: $primary;
+    border: 1px solid $white;
+    color: $white;
+    @include rounded();
+    @include boxShadow();
+    cursor: pointer;
+}
+
+
+.container {
+    &.margins {
+        margin-top: 60px;
+        margin-bottom: 60px;
     }
 }
 
-@include sm-breakpoint {
-    html, body {
-        border-top: 10px solid yellow;
+.full-background-colour {
+    padding: 30px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: $primary-off;
+}
+
+.partners {
+    text-align: center;
+    .partner {
+        display: inline-block;
+        vertical-align: middle;
+        width: 40%;
+        padding: 0 15px;
+        margin-bottom: 15px;
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.two-columns-content {
+    margin-bottom: 30px;
+
+    &.no-margin {
+        margin-bottom: 0;
+    }
+
+    .info-wrapper {
+        padding: 15px;
+
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+.press {
+    img {
+        display: block;
+        margin: 0 auto;
     }
 }
 
 @include md-breakpoint {
-    html, body {
-        border-top: 10px solid green;
+    .partners {
+        display: flex;
+        justify-content: center;
+    
+        .partner {
+            padding: 0;
+            margin: 0 15px;
+            
+            img {
+                height: 40px;
+                width: auto;
+            }
+        }
     }
 }
 
 @include lg-breakpoint {
-    html, body {
-        border-top: 10px solid blue;
-    }
-}
-
-@include xl-breakpoint {
-    html, body {
-        border-top: 10px solid purple;
+    .partners {
+        .partner {
+            img {
+                height: 50px;
+            }
+        }
     }
 }

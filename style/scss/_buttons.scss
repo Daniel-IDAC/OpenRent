@@ -1,0 +1,68 @@
+.default-button {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border: 1px solid $black;
+    background-color: $white;
+    color: $black;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    @include rounded();
+
+    &:hover {
+        background-color: $black;
+        color: $white;
+        text-decoration: none;
+    }
+
+    .svg-icon {
+        vertical-align: top;
+    }
+}
+
+.primary-button {
+    @extend .default-button;
+    border-color: transparent;
+    background-color: $primary;
+    color: $white;
+
+    &:hover {
+        border-color: $primary;
+        background-color: $white;
+        color: $primary;
+    }
+}
+
+.secondary-button {
+    @extend .default-button;
+    border-color: transparent;
+    background-color: $secondary;
+    color: $white;
+
+    &:hover {
+        border-color: $secondary;
+        background-color: $white;
+        color: $secondary;
+    }
+}
+
+.footer-button {
+    @extend .default-button;
+    border-color: $white;
+    background-color: $white;
+    color: $primary;
+
+    &:hover {
+        background-color: transparent;
+        color: $white;
+    }
+}
+
+@include sm-breakpoint {
+    .default-button {
+        width: fit-content;
+    }
+}
