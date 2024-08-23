@@ -1,13 +1,13 @@
 .welcome-wrapper {
     position: relative;
     height: 100vh;
-    padding: 25vh 0;
+    padding: 15vh 0;
     font-size: 1.2rem;
     text-shadow: 1px 1px 2px $font-color;
     color: $white;
 
     h1 {
-        font-size: 3.0rem;
+        font-size: 2.4rem;
     }
     
     img {
@@ -98,6 +98,13 @@
 
 @include md-breakpoint {
     .welcome-wrapper {
+        padding: 25vh 0;
+        font-size: 1.2rem;
+
+        h1 {
+            font-size: 3.0rem;
+        }
+        
         .search-filters {
             p {
                 display: inline-block;
